@@ -142,22 +142,6 @@ def hemisphere(browser):
 
     return hemisphere_image_urls
 
-#Hemisphere_img_url
-def hemisphere_scrape(html_text):
-    #Try and except for error handling
-    hemisphere_soup = soup(html_text, 'html.parser')
-    try:
-        title_element = hemisphere_soup.find('h2', class_ = 'title').get_text()
-        sample_element = hemisphere_soup.find('a', text = 'Sample').get("href")
-    except AttributeError:
-        title_element = None
-        sample_element = None
-    hemisphere = {
-        "title": title_element,
-        "img_url": sample_element
-    }
-    return hemisphere
-
 if __name__ == "__main__":
 
     # If running as script, print scraped data
